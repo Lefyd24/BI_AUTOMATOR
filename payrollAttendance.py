@@ -26,7 +26,7 @@ background-image: url("data:image/png;base64,{img}");
 background-size: 17%;
 background-position: top right;
 background-repeat: no-repeat;
-background-attachment: local;
+background-attachment: fixed;
 }}"""
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
