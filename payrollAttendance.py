@@ -1,3 +1,4 @@
+import base64
 from ast import For
 from distutils.log import error
 from time import time
@@ -10,9 +11,25 @@ import time
 from colorama import Fore, Style, Back
 import streamlit as st
 filterwarnings("ignore")
+st.set_page_config("Payroll Attendance", "/Users/lefterisfthenos/Desktop/Python Projects/YNSPayroll/Picture 1.png" , layout='wide')
 
-st.set_page_config("Payroll Attendance", "Picture 1.png" , layout='wide')
+@st.experimental_memo
+def get_img_as_base64(file):
+    with open(file, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+img = get_img_as_base64("Picture 1.png")
+page_bg_img = f"""
+<style>
+[data-testid="stAppViewContainer"] > .main {{
+background-image: url("data:image/png;base64,{img}");
+background-size: 17%;
+background-position: top right;
+background-repeat: no-repeat;
+background-attachment: local;
+}}"""
 
+st.markdown(page_bg_img, unsafe_allow_html=True)
 @st.cache(show_spinner=False)
 def analysis(files):
     counter = 0
@@ -84,7 +101,7 @@ def analysis(files):
             exit = input(f'An error occured: {e}.\nPlease contact Lefteris Fthenos.\n\nPress any key to exit.')
             break
 
-st.header("Payroll Attendance Files' Proccessor")
+st.header("Payroll Attendance Files' Processor")
 st.info("You need to delete the file 'Payroll_Attendance.xlsx' from the folder, before you begin the process, otherwise the program will eventually crash.")
 files = st.file_uploader("Upload the Daily Attendance files of the day.\nFiles must be named as 'HLCode - HLName- Daily Attendance_22xxxx.xlsx'  ", type=["xls", "xlsx", "xlsm"], accept_multiple_files=True)
 if files:
@@ -98,6 +115,6 @@ if files:
             skipped_files, time_spent = analysis(files)
             if skipped_files:
                 st.error(f"Warning - Skipped the following files since they were not valid:")
-                st.warning(f'{skipped_files}')
+                st.warning(f'{skipped_files}"')
             st.success(f'Time Spent: {round(time_spent,2)}"')
             st.download_button("Press to download PayrollAttendance.xlsx", data=open("Payroll_Attendance.xlsx", 'rb'), file_name="PayrollAttendance.xlsx")
