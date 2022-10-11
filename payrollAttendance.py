@@ -84,7 +84,7 @@ def analysis(files):
             exit = input(f'An error occured: {e}.\nPlease contact Lefteris Fthenos.\n\nPress any key to exit.')
             break
 
-st.header("Payroll Attendance Files' Processor")
+st.header("Payroll Attendance Files' Proccessor")
 st.info("You need to delete the file 'Payroll_Attendance.xlsx' from the folder, before you begin the process, otherwise the program will eventually crash.")
 files = st.file_uploader("Upload the Daily Attendance files of the day.\nFiles must be named as 'HLCode - HLName- Daily Attendance_22xxxx.xlsx'  ", type=["xls", "xlsx", "xlsm"], accept_multiple_files=True)
 if files:
