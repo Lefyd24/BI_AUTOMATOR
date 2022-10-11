@@ -98,6 +98,6 @@ if files:
             skipped_files, time_spent = analysis(files)
             if skipped_files:
                 st.error(f"Warning - Skipped the following files since they were not valid:")
-                st.warning(f'{skipped_files}"')
+                st.warning(f'{skipped_files}')
             st.success(f'Time Spent: {round(time_spent,2)}"')
             st.download_button("Press to download PayrollAttendance.xlsx", data=open("Payroll_Attendance.xlsx", 'rb'), file_name="PayrollAttendance.xlsx")
