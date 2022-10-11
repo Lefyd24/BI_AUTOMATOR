@@ -11,7 +11,7 @@ import time
 from colorama import Fore, Style, Back
 import streamlit as st
 filterwarnings("ignore")
-st.set_page_config("Payroll Attendance", "/Users/lefterisfthenos/Desktop/Python Projects/YNSPayroll/Picture 1.png" , layout='wide')
+st.set_page_config("Payroll Attendance", "Picture 1.png" , layout='wide')
 
 @st.experimental_memo
 def get_img_as_base64(file):
