@@ -14,7 +14,7 @@ from payrollWages import wages
 import streamlit.components.v1 as components
 filterwarnings("ignore")
 
-st.set_page_config("Payroll Attendance", "/Users/lefterisfthenos/Desktop/Python Projects/YNSPayroll/Picture 1.png" , layout='wide')
+st.set_page_config("Payroll Attendance", "Picture 1.png" , layout='wide')
 
 with open("style.css") as style:
     st.markdown(f"<style>{style.read()}</style>", unsafe_allow_html=True)
