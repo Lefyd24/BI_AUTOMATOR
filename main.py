@@ -19,8 +19,7 @@ from streamlit_disqus import st_disqus
 
 from prlWages import wages
 from prlAttendance import analysis
-from cardlink import cardlink_auto
-
+from Accounting import cardlink 
 
 st.set_page_config("Project Automator", "/Users/lefterisfthenos/Desktop/Python Projects/YNS/Picture 1.png" , layout='wide')
 
