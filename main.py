@@ -46,6 +46,7 @@ page_bg_img = f"""
 <style>
 ##MainMenu {{visibility: hidden;}}
 footer {{visibility: hidden;}}
+header {{visibility: hidden;}}
 
 [data-testid="stAppViewContainer"] > .main {{
 background-image: url("data:image/png;base64,{img}");
@@ -73,14 +74,9 @@ proj_option = option_menu(menu_title=None,
                           icons = ["bi bi-house", "bi bi-currency-exchange", "bi bi-book"],
                           orientation="horizontal")
 #project = sb.selectbox("Options", options=["Home","Accounting","Payroll"])
-if proj_option != "Home":
-    sb.header("B.I. AUTOMATOR")
-else:
-    #sb.header("Process Automator")
-    pass
-if proj_option == "Home":
-    sb.error("Home")
-elif proj_option == "Payroll":
+sb.header("B.I. AUTOMATOR")
+
+if proj_option == "Payroll":
     task = sb.selectbox("Choose Task",
                         options=["Payroll Attendance", "Payroll Wages"])
     if task == "Payroll Attendance":
