@@ -81,7 +81,7 @@ if proj_option == "Payroll":
                         options=["Payroll Attendance", "Payroll Wages"])
     if task == "Payroll Attendance":
         st.title("Payroll Attendance Files' Processor")
-        st.info("You need to delete the file 'Payroll_Attendance.xlsx' from the folder, before you begin the process, otherwise the program will eventually crash.")
+        #st.info("You need to delete the file 'Payroll_Attendance.xlsx' from the folder, before you begin the process, otherwise the program will eventually crash.")
         files = st.file_uploader("Upload the Daily Attendance files of the day.\nFiles must be named as 'HLCode - HLName- Daily Attendance_22xxxx.xlsx'  ", type=["xls", "xlsx", "xlsm"], accept_multiple_files=True,label_visibility='visible')
         if files:
             filenames = [file.name for file in files]
