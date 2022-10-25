@@ -20,12 +20,9 @@ from streamlit_disqus import st_disqus
 from prlWages import wages
 from prlAttendance import analysis
 from Accounting import cardlink 
-
-
-
 filterwarnings("ignore")
 
-#! pattern for daily attendances
+st.set_page_config("Project Automator", "Picture 1.png" , layout='wide')
 
 with open("style.css") as style:
     st.markdown(f"<style>{style.read()}</style>", unsafe_allow_html=True)
@@ -63,7 +60,6 @@ background-repeat: no-repeat;
 background-attachment: fixed;
 }}
 """
-st.set_page_config("Project Automator", "Picture 1.png" , layout='wide')
 st.markdown(page_bg_img, unsafe_allow_html=True)
 #! ################ PAGES ################################
 sb = st.sidebar
