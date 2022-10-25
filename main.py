@@ -21,7 +21,6 @@ from prlWages import wages
 from prlAttendance import analysis
 from Accounting import cardlink 
 
-st.set_page_config("Project Automator", "/Users/lefterisfthenos/Desktop/Python Projects/YNS/Picture 1.png" , layout='wide')
 
 
 filterwarnings("ignore")
@@ -64,7 +63,7 @@ background-repeat: no-repeat;
 background-attachment: fixed;
 }}
 """
-
+st.set_page_config("Project Automator", "/Users/lefterisfthenos/Desktop/Python Projects/YNS/Picture 1.png" , layout='wide', page_icon = img)
 st.markdown(page_bg_img, unsafe_allow_html=True)
 #! ################ PAGES ################################
 sb = st.sidebar
