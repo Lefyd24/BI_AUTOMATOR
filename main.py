@@ -73,7 +73,7 @@ sb.header("B.I. AUTOMATOR")
 
 if proj_option == "Payroll":
     task = sb.selectbox("Choose Task",
-                        options=["Payroll Attendance", "Payroll Wages"])
+                        options=["Payroll Attendance", "Payroll Wages", "VAT Checker"])
     if task == "Payroll Attendance":
         st.title("Payroll Attendance Files' Processor")
         #st.info("You need to delete the file 'Payroll_Attendance.xlsx' from the folder, before you begin the process, otherwise the program will eventually crash.")
@@ -121,6 +121,35 @@ if proj_option == "Payroll":
                     else:
                         pass
         #st.dataframe(cursor.fetchall())
+     else:
+        def vat_checker_fun(attendance, employees):
+            df_att = pd.read_excel(attendance, dtype={"VAT":str})
+            df_employees = pd.read_excel(employees, dtype={"VAT":str} )
+
+            vat_attendance = df_att["VAT"].unique().tolist()
+            vat_employees = df_employees["VAT"].unique().tolist()
+
+            missing_vats = []
+            for vat in vat_attendance:
+                if vat not in vat_employees:
+                    missing_vats.append(vat)
+
+            return missing_vats
+
+
+        st.title("Payroll VAT Checker Operation")
+        attendance = st.file_uploader("Upload the hollistic Attendance xlsx file", type=["xlsx", "xlsm", "xls"])
+        employees = st.file_uploader("Upload the PREVIOUS Payroll Employees xlsx file", type=["xlsx", "xlsm", "xls"])
+        if attendance and employees:
+            try:
+                missing_vats = vat_checker_fun(attendance, employees)
+                if missing_vats:
+                    st.subheader("Missing VATs from file PayrollEmployees.xlsx: ")
+                    st.write(missing_vats)
+
+    except Exception as e:
+        st.warning(f"An error has occured with the following code: {e}. Please make sure the files are as mentioned, otherwise contact Lefteris Fthenos.")
+    
 elif proj_option == "Accounting":
     st.info("This page is currently locked.")
     #cardlink.cardlink_auto()
