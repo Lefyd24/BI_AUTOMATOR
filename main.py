@@ -146,6 +146,9 @@ if proj_option == "Payroll":
                 if missing_vats:
                     st.subheader("Missing VATs from file PayrollEmployees.xlsx: ")
                     st.write(missing_vats)
+                else:
+                    st.subheader("Missing VATs from file PayrollEmployees.xlsx: ")
+                    st.write("Gongratulations! There are no missing VATs from PayrollEmployees.xlsx")
 
             except Exception as e:
                 st.warning(f"An error has occured with the following code: {e}. Please make sure the files are as mentioned, otherwise contact Lefteris Fthenos.")
