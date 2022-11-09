@@ -137,18 +137,18 @@ if proj_option == "Payroll":
             return missing_vats
 
 
-            st.title("Payroll VAT Checker Operation")
-            attendance = st.file_uploader("Upload the hollistic Attendance xlsx file", type=["xlsx", "xlsm", "xls"])
-            employees = st.file_uploader("Upload the PREVIOUS Payroll Employees xlsx file", type=["xlsx", "xlsm", "xls"])
-            if attendance and employees:
-                try:
-                    missing_vats = vat_checker_fun(attendance, employees)
-                    if missing_vats:
-                        st.subheader("Missing VATs from file PayrollEmployees.xlsx: ")
-                        st.write(missing_vats)
+        st.title("Payroll VAT Checker Operation")
+        attendance = st.file_uploader("Upload the hollistic Attendance xlsx file", type=["xlsx", "xlsm", "xls"])
+        employees = st.file_uploader("Upload the PREVIOUS Payroll Employees xlsx file", type=["xlsx", "xlsm", "xls"])
+        if attendance and employees:
+            try:
+                missing_vats = vat_checker_fun(attendance, employees)
+                if missing_vats:
+                    st.subheader("Missing VATs from file PayrollEmployees.xlsx: ")
+                    st.write(missing_vats)
 
-                except Exception as e:
-                    st.warning(f"An error has occured with the following code: {e}. Please make sure the files are as mentioned, otherwise contact Lefteris Fthenos.")
+            except Exception as e:
+                st.warning(f"An error has occured with the following code: {e}. Please make sure the files are as mentioned, otherwise contact Lefteris Fthenos.")
     
 elif proj_option == "Accounting":
     st.info("This page is currently locked.")
