@@ -122,6 +122,7 @@ if proj_option == "Payroll":
                         pass
         #st.dataframe(cursor.fetchall())
     else:
+        st.cache(show_spinner=True)
         def vat_checker_fun(attendance, employees):
             df_att = pd.read_excel(attendance, dtype={"VAT":str})
             df_employees = pd.read_excel(employees, dtype={"VAT":str} )
