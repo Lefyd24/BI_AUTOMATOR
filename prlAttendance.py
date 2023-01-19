@@ -7,7 +7,7 @@ import time
 import datetime as dt
 import openpyxl as xl
 filterwarnings("ignore")
-pattern = "* - * - Daily Attendance_22????.xlsx"
+pattern = "* - * - Daily Attendance_2?????.xlsx"
 
 
 @st.cache(show_spinner=False, suppress_st_warning=True)
