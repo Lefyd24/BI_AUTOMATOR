@@ -80,8 +80,9 @@ def analysis(files):
                 if dataframes_to_concat:
                     total_ds = pd.concat(dataframes_to_concat)
                     # print(total_ds)
+                    total_df['Overtime'] = total_df['Overtime'].astype(str)
                     total_ds.to_excel("Payroll_Attendance.xlsx",
-                                      sheet_name="Payroll_Attendance", index=False, dtypes={'Overtime':str})
+                                      sheet_name="Payroll_Attendance", index=False})
                     print('\nThe file was successfully created!')
                 end = time.time()
                 print(f'\nTime spent: {round(end - start, 2)}"')
