@@ -82,7 +82,7 @@ def analysis(files):
                     # print(total_ds)
                     total_df['Overtime'] = total_df['Overtime'].astype(str)
                     total_ds.to_excel("Payroll_Attendance.xlsx",
-                                      sheet_name="Payroll_Attendance", index=False})
+                                      sheet_name="Payroll_Attendance", index=False)
                     print('\nThe file was successfully created!')
                 end = time.time()
                 print(f'\nTime spent: {round(end - start, 2)}"')
